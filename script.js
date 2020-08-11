@@ -8,16 +8,17 @@ $(document).ready(function () {
     const $form = $('#form');
     const $formAnswers = $('#formAnswers');
 
-    let StartingMin = .1;
+    let StartingMin = .5;
     let MinToSec = StartingMin * 60;
     let resetTimer;
     let score;
-    let currentQuestion;
-    let shuffleQuestions;
+    let currentQuestion = 0;
+
+
 
     function setLocalStorage() {
         localStorage.setItem('score', JSON.stringify(score));
-        console.log('Set Local Works');
+        // console.log('Set Local Works');
     };
 
     function getLocalStorage() {
@@ -25,7 +26,7 @@ $(document).ready(function () {
         if(storedScore !== score) {
             score = storedScore
         };
-        console.log('Get Local Works');
+        // console.log('Get Local Works');
     };
     
     function countDown() {
@@ -37,12 +38,9 @@ $(document).ready(function () {
         if (MinToSec === -1) {
             reset();
         };
-        console.log('Timer Started');
-    };
+        // console.log('Timer Started');
+    }; 
 
-    $ready.on('click', start) 
-    
-    
     function start() {
         resetTimer = setInterval(countDown, 1000)
         $ready.addClass('hide');
@@ -51,16 +49,49 @@ $(document).ready(function () {
         $next.removeClass('hide');
         setLocalStorage();
         getLocalStorage();
-        console.log('Ready');
+        // console.log('Ready');
         showQuestion();
         shufflingQuestion = question.sort(function() { Math.random() - .5});
-        currentQuestions = 0;
     };
 
-    function showQuestion(question) {
-        $question.text(question.quizQuestion)
-        console.log('Show Question');
-    }
+    function showQuestion() {
+        $question.text(question[currentQuestion].quizQuestion).addClass('h1');
+        currentQuestion++;
+
+        question[currentQuestion].answer.forEach(answer => {
+            const buttonEl = $('<button>').addClass('btn btn-primary btn-lg mb-3 mr-3 buttons');
+            buttonEl.text(answer.text);            
+            if(answer.correct) {
+                buttonEl.attr('answer', true);
+            } else {
+                buttonEl.attr('answer', false);
+            };
+
+            buttonEl.on('click', function () {
+                answerSelection($(this).data('answer'));
+                console.log(this);
+            });
+
+            $choices.append(buttonEl);
+        });
+
+    };
+
+    function answerSelection(right) {
+        
+        console.log('answer selection');
+    };  
+    
+
+    function reset() { 
+            clearInterval(resetTimer);
+            $question.addClass('hide');
+            $choices.addClass('hide');
+            $next.addClass('hide');
+            $form.removeClass('hide');
+            $formAnswers.removeClass('hide');
+            console.log('All Stopped, Form pops up');
+    };
 
     const question = [
         {
@@ -72,7 +103,6 @@ $(document).ready(function () {
                 { text: 'Removes the last element from the Array?', correct: true},
             ]
         },
-    
         {
             quizQuestion: 'What does split do to a string?', 
             answer: [
@@ -84,15 +114,7 @@ $(document).ready(function () {
         },
     ];
 
-        function reset() { 
-            clearInterval(resetTimer);
-            $question.addClass('hide');
-            $choices.addClass('hide');
-            $next.addClass('hide');
-            $form.removeClass('hide');
-            $formAnswers.removeClass('hide');
-            console.log('All Stopped, Form pops up');
-    };
+    $ready.on('click', start)
 
 });
 
