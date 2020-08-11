@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body class="bg-secondary">
+    <div class="container">
+
+                <!-- Header -->
+                <div class="row">
+                    <div class="col-12 bg-dark text-danger text-center mb-3 mt-1">
+                        <h1>
+                            Christopher Rojas
+                        </h1>
+                    </div>
+                </div>
+                <!-- End of Header -->
+                <!-- NavBar -->
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="navbar-brand nav-link" href="https://sfcarz.github.io/responsivePortfolio/aboutMe.html" target="_blank">Responsive Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="navbar-brand nav-link" href="https://sfcarz.github.io/passwordGenerator/#" target="_blank">Password Generator</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+        <div class="row mt-5">
+            <!-- UserScore -->
+            <div class="col-3 bg-info text-light" id="userScore">
+                Score
+            </div>
+            <!-- Timer -->
+            <div class="col-3 offset-10 bg-primary text-light text-center p-3">
+                <p id="timer">
+                </p>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- Question -->
+        <div class="row">
+            <div class="col-12 bg-info text-center p-3 m-4 text-warning hide" id="question">
+            </div>
+        </div>
+        <br>
+
+        <!-- Choices -->
+        <div class="row">
+            <div class="col-12 bg-info text-center p-3 m-4 hide" id="choices">
+            </div>
+        </div>
+        <br>
+
+        <!-- Ready -->
+        <div class="">
+            <div class="col bg-info text-center p-3 m-4" id="ready">
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg mb-3 btn-block">Ready to Play? Press Me!</button><br>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <div class="">
+            <div class="col bg-info text-center p-3 m-4 hide" id="next">
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg mb-3 btn-block">Next</button><br>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="row">
+            <div class="col hide bg-info text-center m-4 p-3" id="form">
+                <form method="post">
+                    <div class="form-group border-none">
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Write your Name" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- FormAnswers -->
+        <div class="row">
+            <div class="col text-light hide bg-info text-center m-4 p-3" id="formAnswers">
+                <p>High Score Holder: <span id="todo-count">0</span></p>
+                <ul id="todo-list"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="page-footer fixed-bottom font-small bg-dark m-auto">
+        <div class="footer copyright text-center text-primary">© 2020 Rojas Creation <br>
+            <a href="http://www.facebook.com/sfcarz" target="_blank" class="colo-primary">Facebook</a>
+            <a href="https://www.instagram.com/sfcarz/" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/sfcarz/" target="_blank">linkedin</a>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="./script1.js"></script>
+</body>
+</html>
